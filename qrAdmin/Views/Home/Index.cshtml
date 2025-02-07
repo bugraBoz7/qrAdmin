@@ -1,6 +1,9 @@
 ﻿@{
     Layout = null;
 }
+@model qrAdmin.Models.IndexViewModel  // ************************************************************
+
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -247,11 +250,11 @@
 
         <section id="bolum1" class="menu-section">
             <h2>Burger Menüler</h2>
-            @model qrAdmin.Models.IndexViewModel
+            
 
             <div class="menuler-container">
                 <h2>Menüler</h2>
-                @foreach (var menu in Model.Menuler)
+                @foreach (var menu in Model.BMenuler)
                 {
                     <div class="menu-card">
                         @if (!string.IsNullOrEmpty(menu.ResimYolu))
@@ -271,7 +274,7 @@
 
             <div class="menuler-container">
                 <h2>Menüler</h2>
-                @foreach (var menu in Model.Urunler)
+                @foreach (var menu in Model.Hamburgerler)
                 {
                     <div class="menu-card">
                         @if (!string.IsNullOrEmpty(menu.ResimYolu))
@@ -288,31 +291,19 @@
         <!-- Bölüm3-->
         <section id="bolum3" class="menu-section">
             <h2>Menüler</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product-name="İzgara Kofte Menu">
-                    <img src="~/Images/izgaraM.png" alt="İçecek 1">
-                    <h2 class="product-name">Izgara Köfte Menü</h2>
-                    <p>150gr dana köfte,domates,kıvırcık,turşu,közlenmiş biber,patates kızartması,kutu içecek</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Sandvic Kofte Menu">
-
-                    <h2 class="product-name">Sandviç Köfte Menü</h2>
-                    <p>100gr dana köfte,yeşilik,domates,turşu,hamm sos,patates kızartması,3'lü soğan halkası,kutu içecek</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Ayvalik Menu">
-
-                    <h2 class="product-name">Ayvalık Menü</h2>
-                    <p>Sosis,sucuk,kaşar,turşu,domates,amerikan salatası,hamm sos,patates kızartması,3'lü soğan halkası,kutu içecek</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Kumru Menu">
-
-                    <h2 class="product-name">Kumru Menü</h2>
-                    <p>Sosis,sucuk,kaşar peyniri,hamm sos,patates kızartması,3'lü soğan halkası,kutu içecek</p>
-                    <p class="price">₺5</p>
-                </div>
+            <div class="menuler-container">
+                <h2>Menüler</h2>
+                @foreach (var menu in Model.Menuler)
+                {
+                    <div class="menu-card">
+                        @if (!string.IsNullOrEmpty(menu.ResimYolu))
+                        {
+                            <img src="~/Images/@menu.ResimYolu" alt="@menu.Ad" />
+                        }
+                        <h3>@menu.Ad</h3>
+                        <p class="price">₺@menu.Fiyat</p>
+                    </div>
+                }
             </div>
         </section>
         <!-- Bölüm4-->

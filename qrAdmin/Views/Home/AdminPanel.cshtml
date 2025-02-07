@@ -1,29 +1,31 @@
-﻿<h2>Admin Panel</h2>
+﻿@model List<qrAdmin.Models.Urun>
 
-<ul id="urunListesi">
-    <!-- Liste burada oluşturulacak -->
-</ul>
+<h2>Admin Panel</h2>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var urunler = @Html.Raw(Json.Serialize(ViewBag.Urunler));
-        var ul = document.getElementById("urunListesi");
-
-        urunler.forEach(function (urun) {
-            var li = document.createElement("li");
-            li.textContent = `${urun.ad} - ${urun.fiyat} ₺`;
-
-            // Eğer ResimYolu null değilse göster
-            if (urun.resimYolu) {
-                var img = document.createElement("img");
-                img.src = "/Images/" + urun.resimYolu; // Resim yolu
-                img.alt = urun.ad;
-                img.style.width = "100px"; // Görsel boyutu
-                li.appendChild(img);
-            }
-
-            ul.appendChild(li);
-        });
-    });
-</script>
+<table>
+    <thead>
+        <tr>
+            <th>Ürün Adı</th>
+            <th>Mevcut Fiyat</th>
+            <th>Yeni Fiyat</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var urun in Model)
+        {
+            <tr>
+                <td>@urun.Ad</td>
+                <td>@urun.Fiyat ₺</td>
+                <td>
+                    <form method="post" action="@Url.Action("FiyatGuncelle", "Home")">
+                        <input type="hidden" name="id" value="@urun.Id" />
+                        <input type="number" name="fiyat" required />
+                        <button type="submit">Güncelle</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 

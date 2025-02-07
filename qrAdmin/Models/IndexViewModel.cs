@@ -4,7 +4,13 @@ namespace qrAdmin.Models
 {
     public class IndexViewModel
     {
-        public List<Urun> Urunler { get; set; }
+        public List<Urun> Hamburgerler { get; set; }
+        public List<Urun> BMenuler { get; set; }
         public List<Urun> Menuler { get; set; }
+        public List<Urun> Sandvicler { get; set; }
+
+        public List<Urun> Tostlar { get; set; }
+
+
     }
 }
