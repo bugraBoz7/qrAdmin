@@ -1,0 +1,29 @@
+﻿<h2>Admin Panel</h2>
+
+<ul id="urunListesi">
+    <!-- Liste burada oluşturulacak -->
+</ul>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var urunler = @Html.Raw(Json.Serialize(ViewBag.Urunler));
+        var ul = document.getElementById("urunListesi");
+
+        urunler.forEach(function (urun) {
+            var li = document.createElement("li");
+            li.textContent = `${urun.ad} - ${urun.fiyat} ₺`;
+
+            // Eğer ResimYolu null değilse göster
+            if (urun.resimYolu) {
+                var img = document.createElement("img");
+                img.src = "/Images/" + urun.resimYolu; // Resim yolu
+                img.alt = urun.ad;
+                img.style.width = "100px"; // Görsel boyutu
+                li.appendChild(img);
+            }
+
+            ul.appendChild(li);
+        });
+    });
+</script>
+
