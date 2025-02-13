@@ -40,6 +40,16 @@ namespace qrAdmin.Controllers
             var salatalar = _context.Urunler
                            .Where(m => m.Id >= 6 && m.Id <= 10)
                            .ToList();
+            var yanUrunler = _context.Urunler
+                           .Where(m => m.Id >= 6 && m.Id <= 10)
+                           .ToList();
+            var ekstraMal = _context.Urunler
+                           .Where(m => m.Id >= 6 && m.Id <= 10)
+                           .ToList();
+            var icecekler = _context.Urunler
+                         .Where(m => m.Id >= 6 && m.Id <= 10)
+                         .ToList();
+
 
 
 
@@ -53,7 +63,12 @@ namespace qrAdmin.Controllers
                 BMenuler = bmenuler,
                 Menuler = menuler,
                 Sandvicler = sandvicler,
-                Tostlar = tostlar
+                Tostlar = tostlar,
+                Salatalar = salatalar,
+                YanUrunler = yanUrunler,
+                EkstraMal = ekstraMal,
+                Icecekler = icecekler,
+
             };
 
             return View(viewModel);

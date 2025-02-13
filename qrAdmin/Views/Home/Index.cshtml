@@ -227,6 +227,7 @@
     </div>
 
     <!-- Alt Bar (Bölümler İçin) -->
+    <!-- Alt Menü Barı (Bölümler için) -->
     <div class="sub-navbar">
         <ul>
             <li><a href="#bolum1">Burger Menüler</a></li>
@@ -243,6 +244,7 @@
 
         </ul>
     </div>
+
 
     <!-- İçerik Bölümü -->
     <div class="content">
@@ -309,31 +311,19 @@
         <!-- Bölüm4-->
         <section id="bolum4" class="menu-section">
             <h2>Sandvicler</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product-name="Ton Balikli Sandvic">
-
-                    <h2 class="product-name">Ton Balıklı Sandviç</h2>
-                    <p>Ton balık,domates,kıvırcık</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Beyaz Peynirli Sandvic">
-
-                    <h2 class="product-name">Beyaz Peynirli Sandviç</h2>
-                    <p>Beyaz peynir,domates,kıvırcık</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Sprite">
-                    <img src="resim/icecek3.jpg" alt="İçecek 3">
-                    <h2 class="product-name">Sprite</h2>
-                    <p>1L Sprite.</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Kasarli Sandvic">
-
-                    <h2 class="product-name">Kasarli Sandvic</h2>
-                    <p>Kaşar peynir,domates,kıvırcık</p>
-                    <p class="price">₺5</p>
-                </div>
+            <div class="menuler-container">
+                <h2>Menüler</h2>
+                @foreach (var menu in Model.Sandvicler)
+                {
+                    <div class="menu-card">
+                        @if (!string.IsNullOrEmpty(menu.ResimYolu))
+                        {
+                            <img src="~/Images/@menu.ResimYolu" alt="@menu.Ad" />
+                        }
+                        <h3>@menu.Ad</h3>
+                        <p class="price">₺@menu.Fiyat</p>
+                    </div>
+                }
             </div>
         </section>
 
@@ -341,204 +331,92 @@
 
         <section id="bolum5" class="menu-section">
             <h2>Tostlar</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product-name="Yengen Tost">
-
-                    <h2 class="product-name">Yengen Tost</h2>
-                    <p>Ayvalık ekmeği,sucuk,kaşar peyniri,domates,turşu,hamm sos.</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Kavurmali Kasarli Tost">
-
-                    <h2 class="product-name">Kavurmalı Kaşarlı Tost</h2>
-                    <p>Ayvalık ekmeği,kavurma,kaşar peyniri.</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Ayvalik Tost">
-
-                    <h2 class="product-name">Ayvalik Tost</h2>
-                    <p>Ayvalık ekmeği,sosis,sucuk,kaşar peyniri,turşu,domates,amerikan salatası,hamm sos.</p>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Karisik Tost">
-
-                    <h2 class="product-name">Karışık Tost</h2>
-                    <p>Ayvalık ekmeği,sucuk,kaşar peyniri.</p>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Kasarli Tost">
-
-                    <h2 class="product-name">Kaşarlı Tost</h2>
-                    <p>Ayvalık ekmeği,kaşar peyniri.</p>
-                    <p class="price">₺5</p>
-                </div>
+            <div class="menuler-container">
+                <h2>Menüler</h2>
+                @foreach (var menu in Model.Tostlar)
+                {
+                    <div class="menu-card">
+                        @if (!string.IsNullOrEmpty(menu.ResimYolu))
+                        {
+                            <img src="~/Images/@menu.ResimYolu" alt="@menu.Ad" />
+                        }
+                        <h3>@menu.Ad</h3>
+                        <p class="price">₺@menu.Fiyat</p>
+                    </div>
+                }
             </div>
         </section>
         <!-- Bölüm6-->
         <section id="bolum6" class="menu-section">
             <h2>Salatalar</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product-name="Tulum Peynirli Cevizli Salata">
-                    <img src="~/Images/salataT.png" alt="İçecek 1">
-                    <h2 class="product-name">Tulum Peynirli Cevizli Salata</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Ton Balikli Salata">
-                    <img src="~/Images/salataTon.png" alt="İçecek 2">
-                    <h2 class="product-name">Ton Balıklı Salata</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Sezar Salata">
-                    <img src="~/Images/salataSezar.png" alt="İçecek 3">
-                    <h2 class="product-name">Sezar Salata</h2>
-                    <p class="price">₺10</p>
-                </div>
+            <div class="menuler-container">
+                <h2>Menüler</h2>
+                @foreach (var menu in Model.Salatalar)
+                {
+                    <div class="menu-card">
+                        @if (!string.IsNullOrEmpty(menu.ResimYolu))
+                        {
+                            <img src="~/Images/@menu.ResimYolu" alt="@menu.Ad" />
+                        }
+                        <h3>@menu.Ad</h3>
+                        <p class="price">₺@menu.Fiyat</p>
+                    </div>
+                }
             </div>
         </section>
 
         <!-- Bölüm7-->
         <section id="bolum7" class="menu-section">
             <h2>Yan Ürünler</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product-name="6'li Soğan Halkasi">
-
-                    <h2 class="product-name">6'lı Soğan Halkası</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="6'li Nugget">
-
-                    <h2 class="product-name">6'li Nugget</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="6'li Mozzarella Stick">
-
-                    <h2 class="product-name">6'li Mozzarella Stick</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="9'lu Çitir Tavuk Toplari">
-
-                    <h2 class="product-name">9'lu Çitir Tavuk Toplari</h2>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Patates Kizartmasi">
-
-                    <h2 class="product-name">Patates Kizartmasi</h2>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Combo">
-
-                    <h2 class="product-name">Combo</h2>
-                    <p>4'lü soğan halkası + 4'lü nugget + 4'lü mozzarella stick + patates kızartması.</p>
-                    <p class="price">₺5</p>
-                </div>
+            <div class="menuler-container">
+                <h2>Menüler</h2>
+                @foreach (var menu in Model.YanUrunler)
+                {
+                    <div class="menu-card">
+                        @if (!string.IsNullOrEmpty(menu.ResimYolu))
+                        {
+                            <img src="~/Images/@menu.ResimYolu" alt="@menu.Ad" />
+                        }
+                        <h3>@menu.Ad</h3>
+                        <p class="price">₺@menu.Fiyat</p>
+                    </div>
+                }
             </div>
         </section>
         <!-- Bölüm8-->
         <section id="bolum8" class="menu-section">
             <h2>Ekstra Malzemeler ve Soslar</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product-name="50gr Et">
-
-                    <h2 class="product-name">50gr Et</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="100gr Et">
-
-                    <h2 class="product-name">100gr Et</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Dana Füme">
-
-                    <h2 class="product-name">Dana Füme</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Cheddar">
-
-                    <h2 class="product-name">Cheddar</h2>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Ranch Sos">
-
-                    <h2 class="product-name">Ranch Sos</h2>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Balli Hardal">
-
-                    <h2 class="product-name">Ballı Hardal</h2>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Barbeku">
-
-                    <h2 class="product-name">Barbekü</h2>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Aci Sos">
-
-                    <h2 class="product-name">Acı Sos</h2>
-                    <p class="price">₺5</p>
-                </div>
-                <div class="product-card" data-product-name="Garlic Sos">
-
-                    <h2 class="product-name">Garlic Sos</h2>
-                    <p class="price">₺5</p>
-                </div>
+            <div class="menuler-container">
+                <h2>Menüler</h2>
+                @foreach (var menu in Model.EkstraMal)
+                {
+                    <div class="menu-card">
+                        @if (!string.IsNullOrEmpty(menu.ResimYolu))
+                        {
+                            <img src="~/Images/@menu.ResimYolu" alt="@menu.Ad" />
+                        }
+                        <h3>@menu.Ad</h3>
+                        <p class="price">₺@menu.Fiyat</p>
+                    </div>
+                }
             </div>
         </section>
         <!-- Bölüm9-->
         <section id="bolum9" class="menu-section">
             <h2>İçecekler</h2>
-            <div class="product-grid">
-                <div class="product-card" data-product-name="Pepsi">
-
-                    <h2 class="product-name">Pepsi</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Pepsi Max">
-
-                    <h2 class="product-name">Pepsi Max</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Yedigun">
-
-                    <h2 class="product-name">Yedigün</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Fruko">
-
-                    <h2 class="product-name">Fruko</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Fuse Tea">
-
-                    <h2 class="product-name">Fuse Tea</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Ayran">
-
-                    <h2 class="product-name">Ayran</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Tropicana">
-
-                    <h2 class="product-name">Tropicana</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Nigde Gazozu">
-
-                    <h2 class="product-name">Niğde Gazozu</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Sade Soda">
-
-                    <h2 class="product-name">Sade Soda</h2>
-                    <p class="price">₺10</p>
-                </div>
-                <div class="product-card" data-product-name="Su">
-
-                    <h2 class="product-name">Su</h2>
-                    <p>1.5L Su.</p>
-                    <p class="price">₺5</p>
-                </div>
+            <div class="menuler-container">
+                <h2>Menüler</h2>
+                @foreach (var menu in Model.Icecekler)
+                {
+                    <div class="menu-card">
+                        @if (!string.IsNullOrEmpty(menu.ResimYolu))
+                        {
+                            <img src="~/Images/@menu.ResimYolu" alt="@menu.Ad" />
+                        }
+                        <h3>@menu.Ad</h3>
+                        <p class="price">₺@menu.Fiyat</p>
+                    </div>
+                }
             </div>
         </section>
 
